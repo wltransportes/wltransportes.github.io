@@ -1,69 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WL Transportes | Logística Estratégica</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WL Transportes | Logística Estratégica</title>
 
-<link rel="icon" href="logo.png">
-<link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Preload da fonte para melhor performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" as="style">
 
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-<script>
-    // Header escurece ao rolar
-    window.addEventListener("scroll", function() {
-        document.querySelector("header")
-            .classList.toggle("scrolled", window.scrollY > 50);
-    });
-
-    // Espera carregar tudo
-    document.addEventListener("DOMContentLoaded", function () {
-
-        const counters = document.querySelectorAll(".counter");
-
-        counters.forEach(counter => {
-
-            const target = +counter.getAttribute("data-target");
-
-            gsap.fromTo(counter, 
-                { innerHTML: 0 }, 
-                {
-                    innerHTML: target,
-                    duration: 2,
-                    ease: "power1.out",
-                    snap: { innerHTML: 1 },
-                    onUpdate: function () {
-                        counter.innerHTML = Math.floor(counter.innerHTML);
-                    }
-                }
-            );
-
+    <script>
+        // Header escurece ao rolar
+        window.addEventListener("scroll", function() {
+            document.querySelector("header")
+                .classList.toggle("scrolled", window.scrollY > 50);
         });
-
-    });
-</script>
-
-</body>
-</html>
-
+    </script>
+</head>
 <body>
 
 <header id="header">
     <div class="container header-flex">
-        <img src="logo.png" class="logo">
-        <nav>
+        <img src="logo.png" class="logo" loading="lazy" alt="Logo WL Transportes">
+
+        <nav class="desktop-nav">
+            <a href="#sobre">Institucional</a>
+            <a href="#servicos">Soluções</a>
+            <a href="#contato" class="btn-nav">Solicitar Proposta</a>
+        </nav>
+
+        <!-- Menu mobile (hamburger) -->
+        <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="mobile-nav">
             <a href="#sobre">Institucional</a>
             <a href="#servicos">Soluções</a>
             <a href="#contato" class="btn-nav">Solicitar Proposta</a>
         </nav>
     </div>
 </header>
-
-    
 
 <section class="hero">
     <div class="overlay"></div>
@@ -74,93 +59,90 @@
             <a href="#contato" class="btn-primary">Solicitar Proposta</a>
             <a href="https://wa.me/5598987511961" class="btn-outline">Falar com Especialista</a>
         </div>
-         <div class="rotas-box">
-  <div class="rota-item">
-    <span class="rota-cidade">São Luís - MA</span>
-    <span class="rota-icon">⇄</span>
-    <span class="rota-cidade">Tocantins</span>
-  </div>
 
-  <div class="rota-item">
-    <span class="rota-cidade">São Luís - MA</span>
-    <span class="rota-icon">⇄</span>
-    <span class="rota-cidade">Pará</span>
-  </div>
-</div>
-    </div>
+        <div class="rotas-box">
+            <div class="rota-item">
+                <span class="rota-cidade">São Luís - MA</span>
+                <span class="rota-icon">⇄</span>
+                <span class="rota-cidade">Tocantins</span>
+            </div>
+
+            <div class="rota-item">
+                <span class="rota-cidade">São Luís - MA</span>
+                <span class="rota-icon">⇄</span>
+                <span class="rota-cidade">Pará</span>
+            </div>
+        </div>
     </div>
 </section>
-
-    
 
 <section class="numbers floating">
     <div class="container grid-4">
 
-        <div>
-            <h2 class="number">
-                <span class="symbol">&gt;</span>
-                <span class="counter" data-target="98">0</span>
-            </h2>
+        <!-- Item 1: % SLA -->
+        <div class="number-item">
+            <img src="imagem6.png" alt="Alta eficiência SLA" loading="lazy" class="number-icon">
+            <h2 class="number">>98</h2>
             <p class="label">% SLA</p>
         </div>
 
-        <div>
-            <h2 class="number">
-                <span class="symbol">+</span>
-                <span class="counter" data-target="20000">0</span>
-            </h2>
+        <!-- Item 2: Entregas/mês -->
+        <div class="number-item">
+            <img src="imagem12.png" alt="Entregas Last Mile" loading="lazy" class="number-icon">
+            <h2 class="number">+20.000</h2>
             <p class="label">Entregas/mês</p>
         </div>
 
-        <div>
-            <h2 class="number">
-                <span class="symbol">+</span>
-                <span class="counter" data-target="45">0</span>
-            </h2>
+        <!-- Item 3: Cidades -->
+        <div class="number-item">
+            <img src="imagem11.png" alt="Cobertura em cidades" loading="lazy" class="number-icon">
+            <h2 class="number">+45</h2>
             <p class="label">Cidades</p>
         </div>
 
-        <div>
-            <h2 class="number">
-                <span class="counter" data-target="100">0</span>
-                <span class="symbol">%</span>
-            </h2>
+        <!-- Item 4: Rastreamento -->
+        <div class="number-item">
+            <img src="imagem10.png" alt="Rastreamento total" loading="lazy" class="number-icon">
+            <h2 class="number">100%</h2>
             <p class="label">Rastreamento</p>
         </div>
 
     </div>
 </section>
 
-
 <section id="sobre" class="section dark">
     <div class="container about-grid">
-
         <div class="about-text">
             <h2>Autoridade Regional & Visão Nacional</h2>
-            <p>
-           A WL Transportes opera com padrão nacional e precisão estratégica,
-            integrando tecnologia, controle e alta performance logística.
-            </p>
-            <p> Cada operação é conduzida com rigor, rastreabilidade total e 
-                compromisso absoluto com a excelência — porque confiança não se promete, se entrega. </p>
-
+            <p>A WL Transportes opera com padrão nacional e precisão estratégica, integrando tecnologia, controle e alta performance logística.</p>
+            <p>Cada operação é conduzida com rigor, rastreabilidade total e compromisso absoluto com a excelência — porque confiança não se promete, se entrega.</p>
         </div>
 
         <div class="about-image">
-            <img src="imagem7.png" alt="Operação logística WL Transportes">
+            <img src="imagem7.png" alt="Operação logística WL Transportes" loading="lazy">
         </div>
-
     </div>
 </section>
-
 
 <section id="servicos" class="section">
     <div class="container">
         <h2>Soluções Estratégicas</h2>
         <div class="grid-3">
-            <div class="card"><img src="imagem6.png"><h3>Distribuição Urbana</h3><p>Alta eficiência e SLA acima de 98%.</p></div>
-            <div class="card"><img src="imagem3.png"><h3>Last Mile</h3><p>Entrega rastreável e controle total.</p></div>
-            <div class="card"><img src="imagem2.png"><h3>Gestão Operacional</h3><p>Frota estruturada e otimização de rotas.</p></div>
+            <div class="card">
+                <img src="imagem6.png" loading="lazy" alt="Distribuição Urbana">
+                <h3>Distribuição Urbana</h3>
+                <p>Alta eficiência e SLA acima de 98%.</p>
+            </div>
+            <div class="card">
+                <img src="imagem3.png" loading="lazy" alt="Last Mile">
+                <h3>Last Mile</h3>
+                <p>Entrega rastreável e controle total.</p>
+            </div>
+            <div class="card">
+                <img src="imagem2.png" loading="lazy" alt="Gestão Operacional">
+                <h3>Gestão Operacional</h3>
+                <p>Frota estruturada e otimização de rotas.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -174,24 +156,16 @@
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
 
-    <input type="text" name="Nome" placeholder="Seu nome" required>
-    <input type="text" name="Empresa" placeholder="Nome da empresa" required>
-    <input type="email" name="Email" placeholder="Seu e-mail" required>
-    <input type="tel" name="Telefone" placeholder="Telefone" required>
-    <input type="text" name="Volume" placeholder="Volume médio mensal de entregas">
+            <input type="text" name="Nome" placeholder="Seu nome" required>
+            <input type="text" name="Empresa" placeholder="Nome da empresa" required>
+            <input type="email" name="Email" placeholder="Seu e-mail" required>
+            <input type="tel" name="Telefone" placeholder="Telefone" required>
+            <input type="text" name="Volume" placeholder="Volume médio mensal de entregas">
 
-    <!-- Anti-spam -->
-    <input type="hidden" name="_captcha" value="false">
+            <button type="submit" class="btn-primary">Enviar Proposta</button>
 
-    <button type="submit" class="btn-primary">Enviar Proposta</button>
-
-    <p class="form-note">Entraremos em contato em até 24h úteis.</p>
-
-</form>
-
-
-
-
+            <p class="form-note">Entraremos em contato em até 24h úteis.</p>
+        </form>
     </div>
 </section>
 
@@ -201,16 +175,12 @@
     </div>
 </footer>
 
-<a href="https://wa.me/5598987511961?text=Olá! Vim pelo site da WL Transportes."
+<a href="https://wa.me/5598987511961?text=Olá!%20Vim%20pelo%20site%20da%20WL%20Transportes."
    class="whatsapp-float"
    target="_blank">
-    <img src="whatsapp.png">
+    <img src="whatsapp.png" loading="lazy" alt="WhatsApp">
 </a>
 
 <script src="js/script.js"></script>
 </body>
-
 </html>
-
-
-
